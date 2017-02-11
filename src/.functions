@@ -1,0 +1,91 @@
+#####################################################
+# A set of primitive vmpooler commands using curl
+
+listvm () { 
+  curl --url http://vcloud.delivery.puppetlabs.net/vm
+}
+
+getvm () {
+  curl -k -X POST -H X-AUTH-TOKEN:df0zurdwun6g7dr7ss2ymozlwpf2qvdk --url https://vcloud.delivery.puppetlabs.net/vm/$1
+}
+
+sshvm () {
+  ssh -i ~/.ssh/id_rsa-acceptance root@$1
+}
+
+rmvm () {
+  curl -k -H X-AUTH-TOKEN:df0zurdwun6g7dr7ss2ymozlwpf2qvdk -X DELETE --url https://vcloud.delivery.puppetlabs.net/vm/$1
+}
+
+showvm () {
+  curl --url http://vmpooler.delivery.puppetlabs.net/api/v1/vm/$1
+}
+
+modifyvm () {
+  if [ -z $2 ]; then
+    echo "You need to provide the parameters to be changed: https://github.com/puppetlabs/vmpooler/blob/master/API.md#put-vmhostname"
+    echo "Probably: '{\"lifetime\":\"48\"}' or some other number of hours"
+    return 1
+  fi
+  curl -k -X PUT -d "$2" -H X-AUTH-TOKEN:df0zurdwun6g7dr7ss2ymozlwpf2qvdk --url https://vmpooler.delivery.puppetlabs.net/api/v1/vm/$1
+}
+
+snapshotvm () {
+  curl -k -X POST -H X-AUTH-TOKEN:df0zurdwun6g7dr7ss2ymozlwpf2qvdk --url https://vmpooler.delivery.puppetlabs.net/api/v1/vm/$1/snapshot
+}
+
+revertvm () {
+  curl -k -X POST -H X-AUTH-TOKEN:df0zurdwun6g7dr7ss2ymozlwpf2qvdk --url https://vmpooler.delivery.puppetlabs.net/api/v1/vm/$1/snapshot/$2
+}
+
+tokenlist () {
+  curl -k -X GET -u joshua.partlow --url https://vmpooler.delivery.puppetlabs.net/api/v1/token
+}
+tokenget () {
+  curl -k -X POST -u joshua.partlow --url https://vmpooler.delivery.puppetlabs.net/api/v1/token
+}
+
+tokendel () {
+  token=${1?}
+
+  if [ -z $token ]; then
+    echo "Must provide the token string."
+    return 1
+  fi
+  curl -k -X DELETE -u joshua.partlow --url https://vmpooler.delivery.puppetlabs.net/api/v1/token/$token
+}
+
+# End vmpooler commands
+#####################################################
+
+# Pull down the passed PR # from the upstream fork of the current github
+# project
+fetchpr () {
+  pr_num=$1
+   
+  git fetch upstream "refs/pull/${pr_num}/head"
+  git checkout -b "pull-${pr_num}" FETCH_HEAD
+}
+
+###########################################################
+# Used to refresh ssh connection from within a tmux session
+# http://justinchouinard.com/blog/2010/04/10/fix-stale-ssh-environment-variables-in-gnu-screen-and-tmux/
+
+set_ssh_auth_sock() {
+  t_new_ssh_auth_sock=${1}
+  if [[ -n $t_new_ssh_auth_sock ]] && [[ -S $t_new_ssh_auth_sock ]]; then 
+    export SSH_AUTH_SOCK=$t_new_ssh_auth_sock
+    return 0
+  fi
+  return 1
+}
+
+refresh_ssh() {   
+  if [[ -n $TMUX ]]; then
+    NEW_SSH_AUTH_SOCK=`tmux showenv|grep ^SSH_AUTH_SOCK|cut -d = -f 2`
+    if ! set_ssh_auth_sock $NEW_SSH_AUTH_SOCK; then
+      NEW_SSH_AUTH_SOCK=`ls -t1 /run/user/$UID/*/ssh | head -1`
+      set_ssh_auth_sock $NEW_SSH_AUTH_SOCK
+    fi
+  fi
+}
