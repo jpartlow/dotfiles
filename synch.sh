@@ -4,8 +4,8 @@
 # Configure a user's environment by linking configuration files in this
 # repository's src/ directory. See usage() for details.
 
-script=$(dirname "$0")
-repodir=$(dirname "$0")
+script=$(readlink -f "$0")
+repodir=$(readlink -f $(dirname "$0"))
 srcdir="${repodir?}/src"
 timestamp=$(date +'%Y%m%d%H%M%s')
 
@@ -49,7 +49,7 @@ linked() {
     fi
 
     if [ ! -L "${t_target_file}" ] || [ "${t_src_file}" != "${t_current_target}" ]; then
-        exit 1
+        return 1
     fi
 }
 
@@ -57,7 +57,9 @@ backup() {
     local t_file_to_backup="${1?}"
 
     if [ -e "${t_file_to_backup}" ]; then
+	set -x
         mv "${t_file_to_backup}" "${t_file_to_backup}.${timestamp?}.bak"
+	set +x
     fi
 }
 
@@ -81,6 +83,7 @@ shopt -s dotglob
 for path in ${srcdir?}/*; do
     file=$(basename "$path")
     target="${homedir?}/${file?}"
+    echo "$file -> $target"
     if ! linked "${path?}" "${target?}"; then
         backup "${target?}"
         ln -s "${path?}" "${target?}"
