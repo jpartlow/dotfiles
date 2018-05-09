@@ -1,0 +1,147 @@
+# ~/.tmuxinator/work.yml
+
+name: work
+root: ~/work
+
+# Optional tmux socket
+socket_name: pair
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Project hooks
+# Runs on project start, always
+# on_project_start: command
+# Run on project start, the first time
+# on_project_first_start: command
+# Run on project start, after the first time
+# on_project_restart: command
+# Run on project exit ( detaching from tmux session )
+# on_project_exit: command
+# Run on project stop
+# on_project_stop: command
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: editor
+
+# Specifies (by index) which pane of the specified window will be selected on project startup. If not set, the first pane is used.
+# startup_pane: 1
+
+# Controls whether the tmux session should be attached to automatically. Defaults to true.
+# attach: false
+
+# Runs after everything. Use it to attach to tmux with custom options etc.
+# post: tmux -CC attach -t work
+
+windows:
+  - enterprise-dist:
+      root: ~/work/src/pl/enterprise-dist
+      layout: even-vertical
+      panes:
+        -
+        - cd ../pe-modules-vanagon
+  - puppet_enterprise:
+      root: ~/work/src/pl/puppetlabs-puppet_enterprise
+      layout: even-vertical
+      panes:
+        -
+        -
+  - pe-installer-shim:
+      root: ~/work/src/pl/pe-installer-shim
+      layout: even-vertical
+      panes:
+        -
+        -
+  - pe_install:
+      root: ~/work/src/pl/puppetlabs-pe_install
+      layout: even-vertical
+      panes:
+        -
+        -
+  - pe_manager:
+      root: ~/work/src/pl/puppetlabs-pe_manager
+      layout: even-vertical
+      panes:
+        -
+        -
+  - pe_infrastructure:
+      root: ~/work/src/pl/puppetlabs-pe_infrastructure
+      layout: even-vertical
+      panes:
+        -
+        -
+  - pe_repo:
+      root: ~/work/src/pl/puppetlabs-pe_repo
+      layout: even-vertical
+      panes:
+        -
+        -
+
+  - free8:
+      root: ~/work/src/pl/
+  - free9:
+      root: ~/work/src/pl/
+  - free10:
+      root: ~/work/src/pl/
+  - free11:
+      root: ~/work/src/pl/
+  - free12:
+      root: ~/work/src/pl/
+  - free13:
+      root: ~/work/src/pl/
+  - free14:
+      root: ~/work/src/pl/
+  - free15:
+      root: ~/work/src/pl/
+
+  - fb1:
+      root: ~/work/src/pl/frankenbuilder
+      layout: tiled
+      panes:
+        -
+        -
+        - cd ../pe_acceptance_tests
+        - cd ../pe_acceptance_tests
+  - fb2:
+      root: ~/work/src/other/frankenbuilder
+      layout: tiled
+      panes:
+        -
+        -
+        - cd ../pe_acceptance_tests
+        - cd ../pe_acceptance_tests
+  - fb3:
+      root: ~/work/src/other/frankenbuilder_3
+      layout: tiled
+      panes:
+        -
+        -
+        - cd ../pe_acceptance_tests_3
+        - cd ../pe_acceptance_tests_3
+  - fb4:
+      root: ~/work/src/other/frankenbuilder_4
+      layout: tiled
+      panes:
+        -
+        -
+        - cd ../pe_acceptance_tests_4
+        - cd ../pe_acceptance_tests_4
+
+  - docs:
+      root: ~/Documents/integration
+      layout: even-horizontal
+      panes:
+        - vim did-today.txt
+        - vim todo.txt
+
+  - vm1:
+      root: ~/work/virtual
