@@ -89,3 +89,8 @@ refresh_ssh() {
     fi
   fi
 }
+
+# List merged branches for cleanup
+merged() {
+  git branch --merged | grep -E '^(  )(issue|maint|task|ticket|tmp|feature|merge|fix|bug|PE-)'
+}
