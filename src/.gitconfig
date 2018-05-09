@@ -1,0 +1,21 @@
+[user]
+    name = Josh Partlow
+    email = joshua.partlow@puppetlabs.com
+[color]
+    ui = auto
+[alias]
+    lg = "log --pretty=format:'%C(yellow)%h%C(reset) %C(blue)%an%C(reset) %C(cyan)%cr - %ci%C(reset) %s %C(green)%d%C(reset)' --graph --date-order"
+[alias]
+    mr = "--no-ff --log"
+[alias]
+    branchdate = "for-each-ref --sort='-authordate' --format='%(authordate)%09%(refname:short)'"
+[alias]
+    branchdate-full = "for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname:short)\n%09%(subject)'"
+[alias]
+    cb = "checkout -b"
+[alias]
+    mg = "merge --no-ff --log"
+[push]
+    default = current
+[rerere]
+    enabled = false
