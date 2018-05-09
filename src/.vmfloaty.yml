@@ -1,0 +1,6 @@
+url: 'https://vmpooler.delivery.puppetlabs.net/api/v1'
+user: 'joshua.partlow'
+token:
+nspooler-url: 'https://nspooler-service-prod-1.delivery.puppetlabs.net/api/v1'
+nspooler-user: 'joshua.partlow'
+nspooler-token:
