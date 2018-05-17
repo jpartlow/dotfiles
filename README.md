@@ -36,6 +36,7 @@ function dotfiles {
    /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
 }
 dotfiles checkout
+dotfiles config --local status.showUntrackedFiles no
 ```
 
 This ignores the possibility of conflicts with existing default dotfiles.
