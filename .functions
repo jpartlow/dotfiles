@@ -94,3 +94,9 @@ refresh_ssh() {
 merged() {
   git branch --merged | grep -E '^(  )(issue|maint|task|ticket|tmp|feature|merge|fix|bug|PE-)'
 }
+
+# A git alias to manage $HOME dotfiles from the $HOME/.dotfiles repository
+# See https://github.com/jpartlow/dotfiles/blob/master/README.md
+function dotfiles {
+  /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
+}
