@@ -44,67 +44,67 @@ socket_name: pair
 
 windows:
   - enterprise-dist:
-      root: ~/work/src/pl/enterprise-dist
+      root: ~/work/src/enterprise-dist
       layout: even-vertical
       panes:
         -
         - cd ../pe-modules-vanagon
   - puppet_enterprise:
-      root: ~/work/src/pl/puppetlabs-puppet_enterprise
+      root: ~/work/src/pe-modules/puppetlabs-puppet_enterprise
       layout: even-vertical
       panes:
         -
         -
   - pe-installer-shim:
-      root: ~/work/src/pl/pe-installer-shim
+      root: ~/work/src/pe-installer-shim
       layout: even-vertical
       panes:
         -
         -
   - pe_install:
-      root: ~/work/src/pl/puppetlabs-pe_install
+      root: ~/work/src/pe-modules/puppetlabs-pe_install
       layout: even-vertical
       panes:
         -
         -
   - pe_manager:
-      root: ~/work/src/pl/puppetlabs-pe_manager
+      root: ~/work/src/pe-modules/puppetlabs-pe_manager
       layout: even-vertical
       panes:
         -
         -
   - pe_infrastructure:
-      root: ~/work/src/pl/puppetlabs-pe_infrastructure
+      root: ~/work/src/pe-modules/puppetlabs-pe_infrastructure
       layout: even-vertical
       panes:
         -
         -
   - pe_repo:
-      root: ~/work/src/pl/puppetlabs-pe_repo
+      root: ~/work/src/pe-modules/puppetlabs-pe_repo
       layout: even-vertical
       panes:
         -
         -
 
   - free8:
-      root: ~/work/src/pl/
+      root: ~/work/src/
   - free9:
-      root: ~/work/src/pl/
+      root: ~/work/src/
   - free10:
-      root: ~/work/src/pl/
+      root: ~/work/src/
   - free11:
-      root: ~/work/src/pl/
+      root: ~/work/src/
   - free12:
-      root: ~/work/src/pl/
+      root: ~/work/src/
   - free13:
-      root: ~/work/src/pl/
+      root: ~/work/src/
   - free14:
-      root: ~/work/src/pl/
+      root: ~/work/src/
   - free15:
-      root: ~/work/src/pl/
+      root: ~/work/src/
 
   - fb1:
-      root: ~/work/src/pl/frankenbuilder
+      root: ~/work/src/frankenbuilder
       layout: tiled
       panes:
         -
@@ -112,15 +112,15 @@ windows:
         - cd ../pe_acceptance_tests
         - cd ../pe_acceptance_tests
   - fb2:
-      root: ~/work/src/other/frankenbuilder
+      root: ~/work/src/alternates/frankenbuilder_2
       layout: tiled
       panes:
         -
         -
-        - cd ../pe_acceptance_tests
-        - cd ../pe_acceptance_tests
+        - cd ../pe_acceptance_tests_2
+        - cd ../pe_acceptance_tests_2
   - fb3:
-      root: ~/work/src/other/frankenbuilder_3
+      root: ~/work/src/alternates/frankenbuilder_3
       layout: tiled
       panes:
         -
@@ -128,20 +128,28 @@ windows:
         - cd ../pe_acceptance_tests_3
         - cd ../pe_acceptance_tests_3
   - fb4:
-      root: ~/work/src/other/frankenbuilder_4
+      root: ~/work/src/alternates/frankenbuilder_4
       layout: tiled
       panes:
         -
         -
         - cd ../pe_acceptance_tests_4
         - cd ../pe_acceptance_tests_4
-
-  - docs:
-      root: ~/Documents/integration
-      layout: even-horizontal
+  - fb5:
+      root: ~/work/src/alternates/frankenbuilder_5
+      layout: tiled
       panes:
-        - vim did-today.txt
-        - vim todo.txt
+        -
+        -
+        - cd ../pe_acceptance_tests_5
+        - cd ../pe_acceptance_tests_5
 
-  - vm1:
-      root: ~/work/virtual
+#  - docs:
+#      root: ~/Documents/integration
+#      layout: even-horizontal
+#      panes:
+#        - vim did-today.txt
+#        - vim todo.txt
+
+#  - vm1:
+#      root: ~/work/virtual
