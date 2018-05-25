@@ -3,6 +3,21 @@ let g:sh_fold_enabled=1
 syntax on
 filetype plugin indent on
 
+set expandtab
+set tabstop=8
+set softtabstop=4
+set shiftwidth=4
+set autowrite " Automatically save before commands like :next and :make
+set hlsearch " Hilight searches
+set background=dark
+set showcmd            " Show (partial)
+set showmatch          " Show matching
+set ignorecase         " Do case
+set incsearch          " Incremental
+set modeline
+set mouse=a
+set number
+
 " Syntastic settings
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
