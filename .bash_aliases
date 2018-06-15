@@ -1,4 +1,6 @@
-alias ack=ack-grep
+if [ ! -f /usr/bin/ack ]; then
+  alias ack=ack-grep
+fi
 alias gs='git status'
 alias gc='git commit'
 alias git-merged='git branch --merged | grep -E "( issue|ticket|fix|tmp|maint)"'
