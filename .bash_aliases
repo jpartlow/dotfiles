@@ -15,7 +15,9 @@ alias emacs='emacs -nw'
 alias vmcheck='vboxmanage list runningvms'
 
 # TMux completion
-source /usr/share/doc/tmux/examples/bash_completion_tmux.sh
+if [ -f /usr/share/doc/tmux/examples/bash_completion_tmux.sh ]; then
+  source /usr/share/doc/tmux/examples/bash_completion_tmux.sh
+fi
 
 export EDITOR=vim
 
