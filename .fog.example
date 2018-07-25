@@ -1,0 +1,18 @@
+---
+:default:
+  :vmpooler_token:
+  :aix_hypervisor_server: rpm-builder.delivery.puppetlabs.net
+  :aix_hypervisor_username: jenkins
+  :aix_hypervisor_keyfile: "/home/jenkins/.ssh/id_rsa-acceptance"
+  :solaris_hypervisor_server: mundilfari.delivery.puppetlabs.net
+  :solaris_hypervisor_username: harness
+  :solaris_hypervisor_keyfile: "/home/jenkins/.ssh/id_rsa-old.private"
+  :solaris_hypervisor_vmpath: rpool/zoneds
+  :solaris_hypervisor_snappaths:
+    - rpool/ROOT/zbe-0
+  :openstack_auth_token:
+  :openstack_cache_ttl: 86400
+  :openstack_auth_url: https://slice-pdx1-prod.ops.puppetlabs.net:5000/v3/auth/tokens
+  :openstack_username: joshua.partlow
+  :openstack_project_name: joshua.partlow
+  :openstack_domain_id: default
