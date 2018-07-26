@@ -6,7 +6,8 @@ alias gc='git commit'
 alias git-merged='git branch --merged | grep -E "( issue|ticket|fix|tmp|maint)"'
 
 alias be='bundle exec'
-alias bi='bundle install --path=./.bundle/gems'
+#alias bi='bundle install --path=./.bundle/gems'
+alias bi='bundle install'
 
 alias sp='bundle exec rake parallel:spec[3]'
 
