@@ -16,3 +16,5 @@ acceptance/acceptance-artifacts.tar.gz
 test-cfgs
 *.log
 g
+overrides.yaml
+overrides.conf
