@@ -1,1 +1,2 @@
 PRESERVE_HOSTS='always'
+HYPERVISOR='vmpooler'
