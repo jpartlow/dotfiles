@@ -101,13 +101,13 @@ windows:
         -
 
   - fb1:
-      root: ~/work/src/frankenbuilder
+      root: ~/work/src/alternates/frankenbuilder_1
       layout: tiled
       panes:
         -
         -
-        - cd ../pe_acceptance_tests
-        - cd ../pe_acceptance_tests
+        - cd ../pe_acceptance_tests_1
+        - cd ../pe_acceptance_tests_1
   - fb2:
       root: ~/work/src/alternates/frankenbuilder_2
       layout: tiled
