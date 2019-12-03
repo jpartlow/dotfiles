@@ -1,0 +1,15 @@
+# ~/.tmuxinator/bastion.yml
+
+name: bastion
+root: ~/work
+
+# Optional tmux socket
+socket_name: pair
+
+windows:
+  - enterprise-dist:
+      root: ~/work/src/enterprise_tasks
+      layout: even-vertical
+      panes:
+        -
+        -
