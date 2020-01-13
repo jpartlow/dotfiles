@@ -61,21 +61,25 @@ windows:
       panes:
         -
         -
-  - pem-johnson:
-      root: ~/work/src/pem/johnson
-      layout: even-vertical
-      panes:
-        -
-        -
   - pem-kearney:
       root: ~/work/src/pem/kearney
       layout: even-vertical
       panes:
         -
         -
+  - pem-lovejoy:
+      root: ~/work/src/pem/lovejoy
+      layout: even-vertical
+      panes:
+        -
+        -
+  - pem-master:
+      root: ~/work/src/pem/master
+      layout: even-vertical
+      panes:
+        -
+        -
 
-  - free6:
-      root: ~/work/src/
   - free7:
       root: ~/work/src/
   - free8:
