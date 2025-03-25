@@ -22,9 +22,6 @@ fi
 
 export EDITOR=vim
 
-# Puppet internal gem source
-export GEM_SOURCE='https://artifactory.delivery.puppetlabs.net/artifactory/api/gems/rubygems/'
-
 # PATH additions
 if [ -d "$HOME/work/src/integration-tools/bin" ]; then
   PATH="$PATH:$HOME/work/src/integration-tools/bin"
