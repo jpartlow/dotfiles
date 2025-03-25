@@ -24,3 +24,5 @@
 [mergetool "vimdiff"]
     trustExitCode = false
     keepBackup = false
+[init]
+    defaultBranch = main
